@@ -14,3 +14,13 @@
 // hours of operation: 6a-8p
 
 // add/remove locations from the daily report
+
+var stores = {
+  storeLocation : '',
+  minimumCustomersPerHour : 0,
+  maximumCustomersPerHour : 0,
+  averageCustomersPerHour : 0,
+  
+
+
+};
