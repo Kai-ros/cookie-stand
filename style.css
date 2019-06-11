@@ -1,10 +1,63 @@
-* {
-  background-color: aliceblue;
+body {
+  background-color: #279CC7;
 }
 
-h1 {
+#site-title-name {
+  position: absolute;
+  top: 280px;
+  left: -130px;
+  width: 300px;
+}
+
+h1 span { 
+  color: white; 
+  font: bold 24px/45px Helvetica, Sans-Serif; 
+  background: rgb(0, 0, 0); /* fallback color */
+  background: rgba(0, 0, 0, 0.7);
+  padding: 10px; 
   text-decoration: underline;
 }
+
+#list-of-thangs {
+  float: left;
+}
+
+#store-Location-Hourly-Totals {
+  float: left;
+}
+
+.container {
+  position: relative;
+}
+
+.text-block {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: black;
+  color: white;
+}
+
+.image {
+  position: relative;
+  width: 100%;
+}
+
+.centered {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+/*
+  Liberated from here:
+    https://css-tricks.com/quick-css-trick-how-to-center-an-object-exactly-in-the-center/
+  And more from here:
+    https://css-tricks.com/text-blocks-over-image/
+*/
 
 
 /* table * {

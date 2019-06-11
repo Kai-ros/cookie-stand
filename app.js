@@ -1,11 +1,9 @@
 'use strict';
 
-
-
-// 
-// Display the values of each array as <ul> in browser
-
 // add/remove locations from the daily report
+
+// TODO: add constructors, move DOM manipulations into functions, transform the lists into tables
+// TODO: Strech goals - total all of the stores, totals per hour per store
 
 // Object literals for each store location
 
@@ -152,7 +150,7 @@ var storeLocationObjectLiteralsArray = [
 // Add the new elem to the page.
 
 
-// For loops to iterate over the arrays/objects and pull out what is necessary sequentially and populate it to the screen.
+// Nested for loop to iterate over the arrays/objects and pull out what is necessary sequentially and populate it to the screen.
 // In other words, complete and utter DOM mastery.
 for (var i = 0; i < storeLocationObjectLiteralsArray.length; i++) {
   // In each loop I need to access the ObjLit's and generate details
