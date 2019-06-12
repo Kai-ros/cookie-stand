@@ -20,7 +20,6 @@ var StoreLocation = function (
   hourlyCookiesPurchasedArray,
   totalCookiesSold
 ) {
-
   this.storeLocation = storeLocation;
   this.minimumCustomersPerHour = minimumCustomersPerHour;
   this.maximumCustomersPerHour = maximumCustomersPerHour;
@@ -46,6 +45,7 @@ StoreLocation.prototype.cookieCalculations = function () {
   return this.hourlyCookiesPurchasedArray;
 };
 StoreLocation.prototype.render = function () {
+  console.log(this.storeLocation, this.hourlyCookiesPurchasedArray);
   this.totals = 0;
   var newElem = createTableRowElem(tRow);
   //newElem.innerText = c
@@ -62,13 +62,30 @@ StoreLocation.prototype.render = function () {
   createTDElem(newElem, this.totals);
   //return hourly total for all stores
 };
+var storeLocationFormElement = document.getElementsByClassName('storeLocationBuilder')[0];
+storeLocationFormElement.addEventListener('submit', (event)=>{
+  event.preventDefault();
+  var name = (typeof event.target[0].value === 'string') ? event.target[0].value : null;
+  var minCustomer = (typeof parseInt(event.target[1].value) === 'number') ? parseInt(event.target[1].value) : null;
+  var maxCustomer = (typeof parseInt(event.target[2].value) === 'number') ? parseInt(event.target[2].value) : null;
+  var averageCookies = (typeof parseInt(event.target[3].value) === 'number') ? parseInt(event.target[3].value) : null; 
+
+  var newLocation = new StoreLocation(name, minCustomer, maxCustomer, averageCookies, 6,20, [],0);
+  newLocation.cookieCalculations();
+
+  constructorsArray.push(newLocation);
+  //rerender
+  document.getElementById('cookie-totals-table').innerHTML = '';
+  generateTableHead();
+});
+
 var sumArray = function(arr){
   var sum = 0;
   for(var i = 0; i < arr.length; i++){
     sum += arr[i];
   }
   return sum;
-}
+};
 var firstAndPikeStore = new StoreLocation('1st and Pike', 23, 65, 6.3, 6, 20, [], 0);
 var seaTacAirport = new StoreLocation('SeaTac Airport', 3, 24, 1.2, 6, 20, [], 0);
 var seattleCenter = new StoreLocation('Seattle Center', 11, 38, 3.7, 6, 20, [], 0);
@@ -131,8 +148,6 @@ var constructorsArray = [
   capitolHill,
   alki
 ];
-console.log(constructorsArray[0]);
-console.log(constructorsArray[1]);
 
 // Create  table element.
 var newTable = createTableElem();
@@ -141,6 +156,8 @@ var tRow = createTableRowElem(newTable);
 
 
 var generateTableHead = function () {
+  tRow = createTableRowElem(newTable);
+  console.log('in gen');
   var newElem = createTableRowElem(tRow);
   createTHElem(newElem, 'Store Location');
 
