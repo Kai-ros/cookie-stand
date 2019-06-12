@@ -11,14 +11,16 @@ var stoeLocationHourlyTotalsTable = document.getElementById('store-Location-Hour
 
 // Object Literal constructor function for each store location
 var StoreLocation = function(
-  storeLocation, 
-  minimumCustomersPerHour, 
-  maximumCustomersPerHour, 
+  storeLocation,
+  minimumCustomersPerHour,
+  maximumCustomersPerHour,
   averageCookiePerCustomer,
   openingHour,
   closingHour,
   hourlyCookiesPurchasedArray,
-  totalCookiesSold ) {
+  totalCookiesSold
+) {
+
   this.storeLocation = storeLocation;
   this.minimumCustomersPerHour = minimumCustomersPerHour;
   this.maximumCustomersPerHour = maximumCustomersPerHour;
@@ -28,13 +30,16 @@ var StoreLocation = function(
   this.hourlyCookiesPurchasedArray = hourlyCookiesPurchasedArray;
   this.totalCookiesSold = totalCookiesSold;
 };
+
 StoreLocation.prototype.calculateRandomCustomersPerHour = function() {
   return this.minimumCustomersPerHour + (Math.floor(Math.random() * (this.maximumCustomersPerHour - this.minimumCustomersPerHour + 1)));
 };
-StoreLocation.prototype.calculateAverageCookiesPerCustomerPerHour = function() {
+
+StoreLocation.prototype.cookieCalculations = function() {
   for (var i = this.openingHour; i < this.closingHour; i++) {
     var averageCookiesPerHour = Math.floor(this.averageCookiePerCustomer * this.calculateRandomCustomersPerHour());
 
+    //TODO: change name or add a helper function
     this.totalCookiesSold += averageCookiesPerHour;
 
     this.hourlyCookiesPurchasedArray.push(i + '00 - ' + (i + 1) + '00 : ' + averageCookiesPerHour + ' cookies');
@@ -48,13 +53,14 @@ var seattleCenter = new StoreLocation('Seattle Center', 11, 38, 3.7, 6, 20, [], 
 var capitolHill = new StoreLocation('Capitol Hill',20, 38, 2.3, 6, 20, [], 0);
 var alki = new StoreLocation('Alki', 2, 16, 4.6, 6, 20, [], 0);
 
-// Call individual object literal functions to generate data for lists. 
+
+// Call individual object literal functions to generate data for lists.
 // In other words turns on the JS functionality.
-firstAndPikeStore.calculateAverageCookiesPerCustomerPerHour();
-seaTacAirport.calculateAverageCookiesPerCustomerPerHour();
-seattleCenter.calculateAverageCookiesPerCustomerPerHour();
-capitolHill.calculateAverageCookiesPerCustomerPerHour();
-alki.calculateAverageCookiesPerCustomerPerHour();
+firstAndPikeStore.cookieCalculations();
+seaTacAirport.cookieCalculations();
+seattleCenter.cookieCalculations();
+capitolHill.cookieCalculations();
+alki.cookieCalculations();
 
 
 
@@ -155,49 +161,52 @@ var createTableElem = function() {
   var tableContainer = document.createElement('table');
   stoeLocationHourlyTotalsTable.appendChild(tableContainer);
 
-  return;
+  return tableContainer;
 };
 
 // Create a <thead>
-var createTableHeadElem = function() {
+var createTableHeadElem = function(targetElement) {
   var tableHeadElem = document.createElement('thead');
-  stoeLocationHourlyTotalsTable.appendChild(tableHeadElem);
+  targetElement.appendChild(tableHeadElem);
 
-  return;
+  return tableHeadElem;
 };
 
 // Create a <tbody>
-var createTableBodyElem = function() {
+var createTableBodyElem = function(targetElement) {
   var tableHeadElem = document.createElement('tbody');
-  stoeLocationHourlyTotalsTable.appendChild(tableHeadElem);
+  targetElement.appendChild(tableHeadElem);
 
-  return;
+  return tableHeadElem;
 };
 
-// Create a <tr>
-var createTableRowElem = function() {
-  var tableRowElem = document.createElement('tr');
-  stoeLocationHourlyTotalsTable.appendChild(tableRowElem);
+//
 
-  return;
+
+// Create a <tr>
+var createTableRowElem = function(targetElement) {
+  var tableRowElem = document.createElement('tr');
+  targetElement.appendChild(tableRowElem);
+
+  return tableRowElem;
 };
 
 // Create <th>'s
-var createTHElem = function(tableEntryElem) {
+var createTHElem = function(tableEntryElem, targetElement) {
   var tableCellElem = document.createElement('th');
   tableCellElem.textContent = tableEntryElem;
-  stoeLocationHourlyTotalsTable.appendChild(tableCellElem);
+  targetElement.appendChild(tableCellElem);
 
-  return;
+  return tableCellElem;
 };
 
 // Create <td>'s
-var createTDElem = function(tableEntryElem) {
+var createTDElem = function(tableEntryElem, targetElement) {
   var tableCellElem = document.createElement('td');
   tableCellElem.textContent = tableEntryElem;
-  stoeLocationHourlyTotalsTable.appendChild(tableCellElem);
+  targetElement.appendChild(tableCellElem);
 
-  return;
+  return tableCellElem;
 };
 
 // Create strings for <td>'s
@@ -219,44 +228,64 @@ var storeLocationObjectLiteralsArray = [
 ];
 
 // Create  table element.
-createTableElem();
+var newTable = createTableElem();
+newTable.id = 'cool';
 
 
 // Fill in the rest of the table.
+var tRow = createTableRowElem(newTable);
 
 for (var k = 0; k < storeLocationObjectLiteralsArray.length; k++) {
-  
+
   var currentStoreLocationObjectLiteral = storeLocationObjectLiteralsArray[k];
 
-  createTableHeadElem();
-  createTableRowElem();
+  // var tHead = createTableHeadElem(newTable);
 
   if (k === 0) {
-    createTHElem(tableStrings);
+    createTHElem(tableStrings, tRow);
   } else {
-    createTHElem(currentStoreLocationObjectLiteral.storeLocation);
+    createTHElem(currentStoreLocationObjectLiteral.storeLocation, tRow);
   }
 
 }
 
-for (var l = 0; l < currentStoreLocationObjectLiteral.hourlyCookiesPurchasedArray.length; l++) {
+for(var windex = 0; windex < storeLocationObjectLiteralsArray[1].hourlyCookiesPurchasedArray.length; windex++){
 
+  tRow = createTableRowElem(newTable);
+  for (var lindex = 0; lindex < storeLocationObjectLiteralsArray.length; lindex++) {
+    if(lindex === 0){
+      createTDElem('No total yet', tRow);
+    } else {
+      //string magic
+      var data = storeLocationObjectLiteralsArray[lindex].hourlyCookiesPurchasedArray[windex];
+      data = data.substring(0, data.length - 7);
+      var indexOfColon = data.indexOf(':');
+      data = data.substring(indexOfColon + 1, data.length);
 
-  createTableBodyElem();
-  createTableRowElem();
+      createTDElem(data, tRow);
+    }
 
-  // Add <td> entries from the hourly cookies array.
-  createTDElem(currentStoreLocationObjectLiteral.hourlyCookiesPurchasedArray[l]);
-
-  // Within the second for loop a conditional to launch a final result of total
-  if (l === (currentStoreLocationObjectLiteral.hourlyCookiesPurchasedArray.length - 1)) {
-    createStringsForTDElem();
   }
-
 }
 
+// tRow = createTableRowElem(newTable);
+// for (var lindex = 0; lindex < storeLocationObjectLiteralsArray.length; lindex++) {
+//   if (lindex === 0) {
+//     createTDElem('No total yet', tRow);
+//   } else {
+//     createTDElem(storeLocationObjectLiteralsArray[lindex].hourlyCookiesPurchasedArray[1], tRow);
+//   }
+
+// }
+
+//
 
 
 
+// The major refactor
+// function smoosher (parentElement || targetElementtargetElement, childName) {
+//   var child = document.createElement(childName);
+//   parentElement || targetElement.appendChild(child);
+// }
 
 
