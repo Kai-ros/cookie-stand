@@ -2,31 +2,52 @@
 
 <html>
 
-  <head>
-      <link rel="stylesheet" href="style.css" type="text/css"/>
+<head>
+  <link rel="stylesheet" href="style.css" type="text/css" />
 
-      <title>Day 06 Lab</title>
-  </head>
+  <title>Day 06 Lab</title>
+</head>
 
-  <body>
+<body>
+  <form class="storeLocationBuilder">
+    <div class="storeLocationBuilder">
+      <label for="storeLocation">Store Location</label>
+      <input name="storeLocation" type="text">
+    </div>
+    <div class="storeLocationBuilder">
+      <label for="minimumCustomers">Minimum Customers</label>
+      <input name="minimumCustomers" type="text">
+    </div>
+    <div class="storeLocationBuilder">
+      <label for="maximumCustomers">Maximum Customers</label>
+      <input name="maximumCustomers" type="text">
+    </div>
+    <div class="storeLocationBuilder">
+      <label for="averagePerHour">Average Per Hour</label>
+      <input name="averagePerHour" type="text">
+    </div>
+    <div class="storeLocationBuilder">
+      <button type="submit">Submit</button>
+    </div>
 
-      <nav>
-          <a href="./index.html">Home</a>
-          <a href="./sales.html">Sales</a>
-        </nav>
-    
-      <h1>Daily Sales Reports</h1>
+  </form>
 
-      <section id="placeholder-Table">
-             
-      </section>
+  <nav>
+    <a href="./index.html">Home</a>
+    <a href="./sales.html">Sales</a>
+  </nav>
 
-      <section id="store-Location-Hourly-Totals-Table"></section>
-      
-        
-    <script src="sales.js"></script>
+  <h1>Daily Sales Reports</h1>
 
-  </body>
-  
+  <section id="placeholder-Table">
+
+  </section>
+
+  <section id="store-Location-Hourly-Totals-Table"></section>
+
+
+  <script src="sales.js"></script>
+
+</body>
+<!-- Form syntax taken from MDN -->
 </html>
-
