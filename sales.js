@@ -76,7 +76,7 @@ storeLocationFormElement.addEventListener('submit', (event)=>{
   constructorsArray.push(newLocation);
   //rerender
   document.getElementById('cookie-totals-table').innerHTML = '';
-  generateTableHead();
+  generateTable();
 });
 
 var sumArray = function(arr){
