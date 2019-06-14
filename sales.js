@@ -154,8 +154,7 @@ var newTable = createTableElem();
 newTable.id = 'cookie-totals-table';
 var tRow = createTableRowElem(newTable);
 
-
-var generateTableHead = function () {
+var generateTable = function () {
   tRow = createTableRowElem(newTable);
   console.log('in gen');
   var newElem = createTableRowElem(tRow);
@@ -180,12 +179,10 @@ var generateTableHead = function () {
   for (i = 0; i < multiStoreHourlyTotalsArray.length; i++){
     createTDElem(newElem, multiStoreHourlyTotalsArray[i]);
   }
-  createTDElem(newElem,sumArray(multiStoreHourlyTotalsArray));
-
-  
+  createTDElem(newElem, sumArray(multiStoreHourlyTotalsArray));
 };
 
-generateTableHead();
+generateTable();
 
 
 

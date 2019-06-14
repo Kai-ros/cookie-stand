@@ -1,5 +1,77 @@
 body {
+  position: relative;
   background-color: #279CC7;
+  width: 960px;
+  height: 1000px;
+}
+
+/* Fixed Screen banner */
+header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+/* Navbar element */
+nav {
+  background-color: grey;
+  height: 50px;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 50px;
+  padding-left: 25px;
+}
+
+/* Banner picture */
+#BannerImageContainer {
+  background-color: black;
+  color: white;
+  font-size: 100px;
+}
+
+/* Midscreen navigation bar */
+#BannerLowerNavBar {
+  background-color: white;
+  color: black;
+  font-size: 50px;
+}
+
+/*
+h1 span { 
+  color: white; 
+  font: bold 24px/45px Helvetica, Sans-Serif; 
+  background: rgb(0, 0, 0); 
+  background: rgba(0, 0, 0, 0.7);
+  padding: 10px; 
+  text-decoration: underline;
+}
+
+#store-Location-Hourly-Totals {
+  float: left;
+}
+
+
+.text-block {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: black;
+  color: white;
+}
+
+
+
+#headerBanner {
+  background-color: black;
+}
+
+
+
+#salmonHeader {
+  position: relative;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  background-color: black;
 }
 
 #site-title-name {
@@ -9,56 +81,10 @@ body {
   width: 300px;
 }
 
-h1 span { 
-  color: white; 
-  font: bold 24px/45px Helvetica, Sans-Serif; 
-  background: rgb(0, 0, 0); /* fallback color */
-  background: rgba(0, 0, 0, 0.7);
-  padding: 10px; 
-  text-decoration: underline;
-}
-
-#list-of-thangs {
-  float: left;
-}
-
-#store-Location-Hourly-Totals {
-  float: left;
-}
-
-.container {
-  position: relative;
-}
-
-.text-block {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: black;
-  color: white;
-}
-
-.image {
-  position: relative;
-  width: 100%;
-}
-
 .centered {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  margin: auto;
+  display: block;
 }
-
-
-/*
-  Liberated from here:
-    https://css-tricks.com/quick-css-trick-how-to-center-an-object-exactly-in-the-center/
-  And more from here:
-    https://css-tricks.com/text-blocks-over-image/
-*/
-
 
 table * {
   border-collapse: collapse;
@@ -68,3 +94,11 @@ table * {
   padding: 10px;
   width:100%;
 }
+*/
+
+/*
+  Liberated from here:
+    https://css-tricks.com/quick-css-trick-how-to-center-an-object-exactly-in-the-center/
+  And more from here:
+    https://css-tricks.com/text-blocks-over-image/
+*/
