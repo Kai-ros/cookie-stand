@@ -48,7 +48,11 @@ nav a {
 }
 
 main {
-  margin-top: 230px;
+  margin-top: 500px;
+}
+
+#test1 {
+  float: right;
 }
 
 /*
