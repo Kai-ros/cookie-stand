@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   position: relative;
   background-color: #279CC7;
@@ -15,10 +19,10 @@ header {
 
 /* Navbar element */
 nav {
-  height: 65px;
+  height: 55px;
   background-color: darkslategray;
   font-family: Arial, Helvetica, sans-serif;
-  line-height: 65px;
+  line-height: 55px;
   font-size: 25px;
   padding-left: 25px;
 }
@@ -28,19 +32,41 @@ nav a {
 }
 
 /* Banner picture */
+#BannerLogo {
+  font-style: bold;
+  font-size: 30px;
+  color: darksalmon;
+  background-color: black;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+#BannerLogoContainer {
+  background-color: black;
+  background-size: cover;
+}
+
+#BannerImage {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
 #BannerImageContainer {
   background-color: black;
-  color: white;
-  font-size: 100px;
 }
 
 /* Midscreen navigation bar */
 #BannerLowerNavBar {
-  height: 65px;
+  height: 55px;
   background-color: gray;
-  line-height: 65px;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 55px;
   padding-left: 25px;
-  font-size: 30px;
+  font-size: 25px;
 }
 
 #BannerLowerNavBar a {  
@@ -48,76 +74,73 @@ nav a {
 }
 
 main {
-  margin-top: 500px;
+  margin-top: 325px;
 }
 
-#test1 {
-  float: right;
-}
-
-/*
-h1 span { 
-  color: white; 
-  font: bold 24px/45px Helvetica, Sans-Serif; 
-  background: rgb(0, 0, 0); 
-  background: rgba(0, 0, 0, 0.7);
-  padding: 10px; 
-  text-decoration: underline;
-}
-
-#store-Location-Hourly-Totals {
-  float: left;
-}
-
-
-.text-block {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.Spacer {
   background-color: black;
-  color: white;
-}
-
-
-
-#headerBanner {
-  background-color: black;
-}
-
-
-
-#salmonHeader {
-  position: relative;
+  height: 100px;
   width: 100%;
-  background: rgba(0, 0, 0, 0.7);
-  background-color: black;
 }
 
-#site-title-name {
-  position: absolute;
-  top: 280px;
-  left: -130px;
+.ImageContainers {
+  float: right;
+  width: 600px;
+}
+
+section {
+  margin-left: 30px;
+}
+
+.SectionHeaders {
+  font-size: 40px;
+  font-style: bold;
+  text-decoration: underline overline;
+}
+
+#Section1 h1 + p {
+  float: left;
   width: 300px;
+  padding-top: 20px;
 }
 
-.centered {
-  margin: auto;
+#Secion2 {
+  margin-top: 15px;
+}
+
+#Section2 h1 + p {
+  float: left;
+  width: 200px;
+  padding-top: 20px;
+}
+
+#Section2 ul {
+  
+  float: left;
+  width: 200px;
+  padding-top: 20px;
+}
+
+#Secion3 {
+  margin-top: 15px;
+}
+
+#Section3 h1 + p {
+  float: left;
+  width: 200px;
+  padding-top: 20px;
+}
+
+#BottomBannerImage {
   display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }
 
-table * {
-  border-collapse: collapse;
-  border: 1px solid black;
-  background-color: darkgrey;
-  font-size: larger;
-  padding: 10px;
-  width:100%;
+#BottomLogo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }
-*/
-
-/*
-  Liberated from here:
-    https://css-tricks.com/quick-css-trick-how-to-center-an-object-exactly-in-the-center/
-  And more from here:
-    https://css-tricks.com/text-blocks-over-image/
-*/
