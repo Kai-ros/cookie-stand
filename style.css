@@ -7,6 +7,7 @@ body {
   background-color: #279CC7;
   width: 960px;
   height: 1000px;
+  margin: auto;
 }
 
 /* Fixed Screen banner */
@@ -40,12 +41,14 @@ nav a {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 50%;
+  width: 100%;
+  text-align: center;
 }
 
 #BannerLogoContainer {
   background-color: black;
   background-size: cover;
+  width: 100%;
 }
 
 #BannerImage {
@@ -57,6 +60,7 @@ nav a {
 
 #BannerImageContainer {
   background-color: black;
+  display: block;
 }
 
 /* Midscreen navigation bar */
@@ -74,12 +78,16 @@ nav a {
 }
 
 main {
-  margin-top: 325px;
+  margin-top: 390px;
+  width: 100%;
+  overflow: hidden;
+  outline: 1px solid red;
+
 }
 
 .Spacer {
   background-color: black;
-  height: 100px;
+  height:5px;
   width: 100%;
 }
 
@@ -90,12 +98,13 @@ main {
 
 section {
   margin-left: 30px;
+  overflow: hidden;
 }
 
 .SectionHeaders {
   font-size: 40px;
   font-style: bold;
-  text-decoration: underline overline;
+  text-decoration: underline;
 }
 
 #Section1 h1 + p {
@@ -104,7 +113,7 @@ section {
   padding-top: 20px;
 }
 
-#Secion2 {
+#Section2 {
   margin-top: 15px;
 }
 
@@ -131,10 +140,14 @@ section {
   padding-top: 20px;
 }
 
+#BottomBannerContainer {
+  margin: auto;
+}
+
 #BottomBannerImage {
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin: auto;
+
   width: 50%;
 }
 
